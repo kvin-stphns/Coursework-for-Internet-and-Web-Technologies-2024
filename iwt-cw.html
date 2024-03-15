@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oscars Nominations</title>
+</head>
+<body>
+    <h1>Oscars Nominations</h1>
+    <p>Enter the year, category, nominee, and/or info to get the nominations. You can also enter the number of times a nominee was nominated or won, and whether the nominee won or not.</p>
+    <p>Click on the "Get Nominations" button to get the nominations, and the "Get Nominees" button to get the nominees.</p>
+    <p>Click on the "Clear Input" button to clear the input fields, and the "Clear Output" button to clear the output.</p>
+    <form id="queryForm">
+        <input type="text" id="year" placeholder="Year (e.g., 2010)">
+        <input type="text" id="category" placeholder="Category (e.g., Best Picture)">
+        <input type="text" id="nominee" placeholder="Nominee">
+        <input type="text" id="info" placeholder="Info">
+        <input type="text" id="nomInfo" placeholder="Nominee or Info">
+        <input type="number" id="times" placeholder="Number of times">
+        <select id="won">
+            <option value="">Both</option>
+            <option value="yes">Won</option>
+            <option value="no">Did not win</option>
+        </select>
+        <button type="button" id="get-nominations">Get Nominations</button>
+        <button type="button" id="get-nominees">Get Nominees</button>
+        <button type="button" id="clear-input">Clear Input</button>
+        <button type="button" id="clear-output">Clear Output</button>
+    </form>
+    <div id="output"></div>
+    <script src="client.js"></script>
+</body>
+</html>

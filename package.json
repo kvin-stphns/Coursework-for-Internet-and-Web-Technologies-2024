@@ -1,0 +1,23 @@
+{
+  "name": "coursework-for-internet-and-web-technologies-2024",
+  "version": "1.0.0",
+  "description": "Coursework for IWT",
+  "main": "client.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kvin-stphns/Coursework-for-Internet-and-Web-Technologies-2024.git"
+  },
+  "author": "Kevin Stephens",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kvin-stphns/Coursework-for-Internet-and-Web-Technologies-2024/issues"
+  },
+  "homepage": "https://github.com/kvin-stphns/Coursework-for-Internet-and-Web-Technologies-2024#readme",
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}
