@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/kvin-stphns/Coursework-for-Internet-and-Web-Technologies-2024#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.18.3"
   }
 }
