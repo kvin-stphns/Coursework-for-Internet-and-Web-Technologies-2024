@@ -28,18 +28,18 @@ app.get('/nominations', async (req, res) => {
         const data = await readOscarsData();
         let results = data;
 
+        // Filtering logic
         Object.keys(req.query).forEach(key => {
-            const value = req.query[key].toLowerCase();
-            
+            const queryValue = req.query[key].toLowerCase().trim(); // Normalize query for comparison
+
             if (key === 'won') {
-                // Direct comparison for 'won', assuming 'yes'/'no' are used in the JSON
-                results = results.filter(item => item.Won.toLowerCase() === value);
-            } else if (key === 'year') {
-                // Special handling for 'year' to allow partial matching (e.g., just entering '1960')
-                results = results.filter(item => item.Year.startsWith(value));
-            } else {
-                // Default handling for other fields (case-insensitive, partial matching)
-                results = results.filter(item => item[key] && item[key].toString().toLowerCase().includes(value));
+                results = results.filter(item => item.Won.toLowerCase() === queryValue);
+            } else if (key === 'nomInfo') {
+                // Special handling that can match 'Nominee' or 'Info'
+                results = results.filter(item => item.Nominee.toLowerCase().includes(queryValue) || item.Info.toLowerCase().includes(queryValue));
+            } else if (['year', 'category', 'nominee', 'info'].includes(key)) {
+                let adjustedKey = key.charAt(0).toUpperCase() + key.slice(1); // Capitalizes the first letter to match JSON keys
+                results = results.filter(item => item[adjustedKey].toString().toLowerCase().includes(queryValue));
             }
         });
 
@@ -48,6 +48,7 @@ app.get('/nominations', async (req, res) => {
         res.status(500).json({ error: 'Server error reading Oscars data' });
     }
 });
+
 
 
 
