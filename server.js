@@ -49,9 +49,6 @@ app.get('/nominations', async (req, res) => {
     }
 });
 
-
-
-
 // Endpoint for fetching nominees
 app.get('/nominees', async (req, res) => {
     try {
@@ -71,7 +68,7 @@ app.get('/nominees', async (req, res) => {
             nominations: nominees[nominee].nominations
         }));
 
-        // Optionally filter results based on the 'times' query parameter if provided
+        // Filter results based on the 'times' query parameter
         const filteredResults = req.query.times ? results.filter(item => item.nominations >= parseInt(req.query.times, 10)) : results;
 
         res.json(filteredResults);
